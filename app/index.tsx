@@ -1,15 +1,12 @@
 import { Text, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Index() {
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Text style={{fontFamily:'outfit-bold'}}> Edit app/index.tsx to edit this 11screen.</Text>
+    <View>
+      <Text className="font-outfitbold">
+        Edit app/index.tsx to edit this 11screen.
+      </Text>
     </View>
   );
 }
