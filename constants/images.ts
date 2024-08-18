@@ -4,7 +4,8 @@ const images = {
     calendar: require("@/assets/images/calendar.png"),
     sex: require("@/assets/images/sex.png"),
     weight: require("@/assets/images/weight.png"),
-    bannerLoading : require("@/assets/images/banner-loading.webp")
+    bannerLoading : require("@/assets/images/banner-loading.webp"),
+    categoryLoading : require("@/assets/images/category-loading.webp")
   };
   
   export default images;

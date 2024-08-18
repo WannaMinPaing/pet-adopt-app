@@ -24,7 +24,7 @@ export default function Slider() {
   }, []);
 
   return (
-    <View className='w-15/16 m-4'> 
+    <View className='w-15/16'> 
       <FlatList 
         data={sliderList}
         horizontal={true}
