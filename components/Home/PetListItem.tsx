@@ -1,5 +1,6 @@
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, TouchableOpacity } from "react-native";
 import React from "react";
+import { useRouter } from "expo-router";
 
 export type PetListProps = {
   age: string;
@@ -11,8 +12,18 @@ export type PetListProps = {
 };
 
 export default function PetListItem(props: PetListProps) {
+  const router = useRouter();
   return (
-    <View className="p-[10px] mr-[15px] bg-white rounded-lg">
+    <TouchableOpacity
+      onPress={() =>
+        router.push({
+          pathname: "/pet-details",
+          params: props,
+        })
+      }
+      activeOpacity={0.7}
+      className="p-[10px] mr-[15px] bg-white rounded-lg"
+    >
       <Image
         source={{ uri: props.imageUrl }}
         className="w-[125px] h-[135px] rounded-lg"
@@ -25,6 +36,6 @@ export default function PetListItem(props: PetListProps) {
           {props.age} YRS
         </Text>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 }
