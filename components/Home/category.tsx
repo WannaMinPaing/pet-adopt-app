@@ -9,7 +9,11 @@ export type categoryListProps = {
   imageUrl: string;
 };
 
-export default function Category() {
+export default function Category({
+  getCategoryType,
+}: {
+  getCategoryType: (name: string) => void;
+}) {
   const [categoryList, setCategoryList] = useState<categoryListProps[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>("");
 
@@ -20,7 +24,8 @@ export default function Category() {
 
       snapshot.docs.forEach((doc, index) => {
         const data = doc.data() as categoryListProps;
-        index == 0 && setSelectedCategory(data.name);
+        index === 0 &&
+          (setSelectedCategory(data.name), getCategoryType(data.name));
         setCategoryList((prevCategoryList) => [...prevCategoryList, data]);
       });
     } catch (error) {
@@ -41,12 +46,15 @@ export default function Category() {
         numColumns={4}
         renderItem={({ item, index }) => (
           <TouchableOpacity
-            onPress={() => setSelectedCategory(item.name)}
+            onPress={() => {
+              setSelectedCategory(item.name);
+              getCategoryType(item.name);
+            }}
             className="flex-1"
           >
             <View
               className={`bg-light_seondary items-center border-[1px] rounded-lg border-primary m-1 ${
-                selectedCategory == item.name
+                selectedCategory === item.name
                   ? "bg-secondary border-secondary"
                   : ""
               }`}
@@ -61,12 +69,19 @@ export default function Category() {
           </TouchableOpacity>
         )}
         ListEmptyComponent={() => (
-          <View>
-            <Image
-              source={images.categoryLoading}
-              resizeMode="stretch"
-              className="w-[60] h-[40]"
-            />
+          <View className="flex-row flex-wrap justify-between">
+            {[...Array(4)].map((_, index) => (
+              <View
+                key={index}
+                className="bg-light_seondary items-center border-[1px] rounded-lg border-primary m-1"
+              >
+                <Image
+                  source={images.categoryLoading}
+                  className="w-[40px] h-[50px]"
+                  resizeMode="cover"
+                />
+              </View>
+            ))}
           </View>
         )}
       />
