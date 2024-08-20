@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "@/config/FirebaseConfig";
 import PetListItem from "./PetListItem";
-import Category from "./category";
+import Category from "./Category";
 
 export type PetListProps = {
   age: string;
