@@ -17,7 +17,7 @@ export type PetListProps = {
 
 export default function PetSubInfo(props: PetListProps) {
   return (
-    <View className="p-[20px]">
+    <View className="px-[20px]">
       <View className="flex-row">
         <PetSubInfoCard
           title="Age"

@@ -1,8 +1,10 @@
-import { View, Text } from "react-native";
+import { View, Text, ScrollView, TouchableOpacity } from "react-native";
 import React, { useEffect } from "react";
 import { useLocalSearchParams, useNavigation } from "expo-router";
 import PetInfo from "@/components/PetDetails/PetInfo";
 import PetSubInfo from "@/components/PetDetails/PetSubInfo";
+import AboutPet from "@/components/PetDetails/AboutPet";
+import OwnerInfo from "@/components/PetDetails/OwnerInfo";
 
 export type PetListProps = {
   age: string;
@@ -14,6 +16,8 @@ export type PetListProps = {
   address: string;
   about: string;
   weight: string;
+  userImage: string;
+  userName: string;
 };
 
 export default function PetDetails() {
@@ -30,6 +34,8 @@ export default function PetDetails() {
     address: params.address as string,
     about: params.about as string,
     weight: params.weight as string,
+    userImage: params.userImage as string,
+    userName: params.userName as string,
   };
 
   useEffect(() => {
@@ -41,15 +47,27 @@ export default function PetDetails() {
 
   return (
     <View className="h-screen">
-      {/* Pet Info  */}
-      <PetInfo {...pet} />
-      {/* Pet Properties */}
-      <PetSubInfo {...pet} />
-      {/* about  */}
+      <ScrollView>
+        {/* Pet Info  */}
+        <PetInfo {...pet} />
 
-      {/* owner */}
-
+        {/* Pet Properties */}
+        <PetSubInfo {...pet} />
+        {/* about  */}
+        <AboutPet {...pet} />
+        {/* owner */}
+        <View className="h-[170px]">
+          <OwnerInfo {...pet} />
+        </View>
+      </ScrollView>
       {/* Adopt me button */}
+      <View className="bg-primary p-[15px] absolute bottom-0 w-full">
+        <TouchableOpacity>
+          <Text className="text-center text-base font-outfitmedium">
+            Adopt Me
+          </Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
