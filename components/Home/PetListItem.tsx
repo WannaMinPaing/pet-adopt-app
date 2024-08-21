@@ -1,8 +1,10 @@
 import { View, Text, Image, TouchableOpacity } from "react-native";
 import React from "react";
 import { useRouter } from "expo-router";
+import MarkFav from "../MarkFav";
 
 export type PetListProps = {
+  id: string;
   age: string;
   breed: string;
   category: string;
@@ -24,6 +26,9 @@ export default function PetListItem(props: PetListProps) {
       activeOpacity={0.7}
       className="p-[10px] mr-[15px] bg-white rounded-lg"
     >
+      <View className="absolute z-10 right-3 top-3">
+        <MarkFav id={props.id} color="white" />
+      </View>
       <Image
         source={{ uri: props.imageUrl }}
         className="w-[125px] h-[135px] rounded-lg"

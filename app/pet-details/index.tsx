@@ -7,6 +7,7 @@ import AboutPet from "@/components/PetDetails/AboutPet";
 import OwnerInfo from "@/components/PetDetails/OwnerInfo";
 
 export type PetListProps = {
+  id: string;
   age: string;
   breed: string;
   category: string;
@@ -25,6 +26,7 @@ export default function PetDetails() {
   const navigation = useNavigation();
 
   const pet: PetListProps = {
+    id: params.id as string,
     age: params.age as string,
     breed: params.breed as string,
     category: params.category as string,

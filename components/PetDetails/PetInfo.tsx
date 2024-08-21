@@ -1,8 +1,9 @@
 import { View, Text, Image, StyleSheet } from "react-native";
 import React from "react";
-import Ionicons from "@expo/vector-icons/Ionicons";
+import MarkFav from "../MarkFav";
 
 export type PetListProps = {
+  id: string;
   imageUrl: string;
   name: string;
   address: string;
@@ -21,7 +22,7 @@ export default function PetInfo(props: PetListProps) {
           <Text className="font-outfit text-sm text-gray">{props.address}</Text>
         </View>
         <View>
-          <Ionicons name="heart-outline" size={30} color="black" />
+          <MarkFav id={props.id} />
         </View>
       </View>
     </View>
