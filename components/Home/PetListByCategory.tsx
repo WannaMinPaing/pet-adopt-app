@@ -6,6 +6,7 @@ import PetListItem from "./PetListItem";
 import Category from "./Category";
 
 export type PetListProps = {
+  id : string;
   age: string;
   breed: string;
   category: string;

@@ -20,7 +20,7 @@ export default function MarkFav({
 
   const GetFav = async () => {
     const result = await GetFavList(user);
-    result && setFavList(result?.favorites ? result?.favorites : []);
+    result && setFavList(result?.favourites ? result?.favourites : []);
   };
 
   const AddToFav = async () => {
