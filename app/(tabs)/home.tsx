@@ -5,6 +5,7 @@ import PetListByCategory from "@/components/Home/PetListByCategory";
 import Slider from "@/components/Home/Slider";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import Header from "@/components/Home/Header";
+import { router } from "expo-router";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
       <PetListByCategory />
       {/* List Of Pets */}
       <TouchableOpacity
+        onPress={()=>router.push('/add-new-pet')}
         activeOpacity={0.7}
         className="flex-row justify-center items-center py-[20x] bg-light_seondary mt-[20px] h-[50px] border-2 border-primary rounded-lg border-dashed	"
       >
