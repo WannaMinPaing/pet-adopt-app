@@ -11,10 +11,12 @@ export type PetListProps = {
   imageUrl: string;
   name: string;
   sex?: string;
+  email : string;
 };
 
 export default function PetListItem(props: PetListProps) {
   const router = useRouter();
+
   return (
     <TouchableOpacity
       onPress={() =>
@@ -23,7 +25,7 @@ export default function PetListItem(props: PetListProps) {
           params: props,
         })
       }
-      activeOpacity={0.7}
+      activeOpacity={0.7} 
       className="p-[10px] mr-[15px] bg-white rounded-lg"
     >
       <View className="absolute z-10 right-3 top-3">

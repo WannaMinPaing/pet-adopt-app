@@ -13,6 +13,7 @@ export type PetListProps = {
   imageUrl: string;
   name: string;
   sex?: string;
+  email : string;
 };
 
 export default function PetListByCategory() {
@@ -38,6 +39,7 @@ export default function PetListByCategory() {
       <View className="items-center w-full mt-2">
         <FlatList
           data={petList}
+          showsHorizontalScrollIndicator={false}
           horizontal={true}
           refreshing={loader}
           onRefresh={() => GetPetList("Dogs")}

@@ -10,6 +10,7 @@ export type PetListProps = {
 };
 
 export default function PetInfo(props: PetListProps) {
+
   return (
     <View>
       <Image
