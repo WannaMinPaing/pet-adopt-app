@@ -79,7 +79,8 @@ export default function PetDetails() {
             imageUrl : pet?.userImage,
             name : pet?.userName
           }
-        ]
+        ],
+        userIds:[user?.primaryEmailAddress?.emailAddress,pet?.email]
       });
 
       router.push({
