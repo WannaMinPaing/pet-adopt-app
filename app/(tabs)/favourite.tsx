@@ -14,6 +14,7 @@ export type FavPetListProps = {
   imageUrl: string;
   name: string;
   sex?: string;
+  email : string;
 };
 
 export default function Favourite() {
@@ -62,5 +63,5 @@ export default function Favourite() {
         )}
       />
     </View>
-  );
+  ); 
 }
