@@ -8,24 +8,25 @@ export default function Index() {
 
   const { user } = useUser();
 
-  // const rootNavigationState = useRootNavigationState();
+  const rootNavigationState = useRootNavigationState();
 
-  // useEffect(() => {
-  //   CheckNavLoaded();
-  // },[]);
+  useEffect(() => {
+    CheckNavLoaded();
+  },[]);
 
-  // const CheckNavLoaded = () => {
-  //     if(!rootNavigationState.key){
-  //       return null;
-  //     }
-  // }
+  const CheckNavLoaded = () => {
+      if(!rootNavigationState.key){
+        return null;
+      }
+  }
 
-  return user &&  (
+  return  (
     <View>
       { user ? 
         <Redirect href={'/(tabs)/home'} />
-        : <Redirect href={'/login'} />
-      }
+        : 
+        <Redirect href={'/login'} />
+      } 
     </View>
   );
 }
